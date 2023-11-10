@@ -14,6 +14,8 @@
 - (GET) Users - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/users
 
 - (POST) Add users - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/user/add
+
+- Body:
   {
   "userId": "user-id",
   "firstName": "user-firstname",
@@ -23,12 +25,16 @@
   }
 
 - (POST) Login - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/login
+  
+- Body:
   {
   "email": "user-email",
   "password": "user-password"
   }
 
 - (POST) Verify Refresh token - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/verify-refresh-token
+  
+- Body:
   {
   "refreshToken": "user-refresh-token"
   }
