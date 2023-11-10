@@ -11,7 +11,7 @@
 
 - <b>(POST)</b> Add users - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/user/add
 
-- Body:
+  Body:
   {
   "userId": "user-id",
   "firstName": "user-firstname",
@@ -22,7 +22,7 @@
 
 - <b>(POST)</b> Login - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/login
   
-- Body:
+  Body:
   {
   "email": "user-email",
   "password": "user-password"
@@ -30,7 +30,7 @@
 
 - <b>(POST)</b> Verify Refresh token - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/verify-refresh-token
   
-- Body:
+  Body:
   {
   "refreshToken": "user-refresh-token"
   }
