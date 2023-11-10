@@ -58,4 +58,4 @@ jobs:
       - name: Serverless Deploy
         run: |
           serverless config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile devProfile -o
-          sls deploy --AWS_ACCESS_KEY_ID $AWS_ACCESS_KEY_ID --AWS_SECRET_ACCESS_KEY $AWS_SECRET_ACCESS_KEY --IMAGE $IMAGE --stage dev
+          sls deploy --param="AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" --param="AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" --param="IMAGE=$IMAGE" --stage dev

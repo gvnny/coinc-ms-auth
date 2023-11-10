@@ -17,9 +17,9 @@ provider:
   profile: ${self:custom.profiles.${self:provider.stage}}
 
 custom:
-  IMAGE: ${opt:IMAGE, 'IMAGE'}
-  AWS_ACCESS_KEY_ID: ${opt:AWS_ACCESS_KEY_ID, 'AWS_ACCESS_KEY_ID'}
-  AWS_SECRET_ACCESS_KEY: ${opt:AWS_SECRET_ACCESS_KEY, 'AWS_SECRET_ACCESS_KEY'}
+  IMAGE: ${param:IMAGE, 'IMAGE'}
+  AWS_ACCESS_KEY_ID: ${param:AWS_ACCESS_KEY_ID, 'AWS_ACCESS_KEY_ID'}
+  AWS_SECRET_ACCESS_KEY: ${param:AWS_SECRET_ACCESS_KEY, 'AWS_SECRET_ACCESS_KEY'}
   defaultStage: dev
   profiles:
     dev: devProfile
