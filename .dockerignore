@@ -1,0 +1,34 @@
+# Arquivos e diretórios específicos a serem excluídos
+
+# Arquivos de log
+logs
+
+# Arquivos temporários
+*.log
+*.swp
+*.swo
+*.tmp
+
+# Arquivos de dependência que não precisam ser copiados
+node_modules
+
+# Arquivos de configuração que não são necessários no contêiner
+.env
+.env.production
+.env.development
+.env.test
+
+# Arquivos relacionados ao controle de versão que não são necessários
+.git
+.gitignore
+.gitattributes
+
+# Arquivos de teste
+__tests__
+__mocks__
+
+# Diretórios de construção que não são necessários no contêiner
+dist
+coverage
+
+# Dependendo das suas necessidades, você pode adicionar outras exclusões aqui
