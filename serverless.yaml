@@ -11,14 +11,14 @@ provider:
   stackTags:
     Projeto: 'COINC'
   environment:
-    ACCESS_KEY_ID: ${self:custom.AWS_ACCESS_KEY_ID}
-    ACCESS_SECRET_KEY: ${self:custom.AWS_SECRET_ACCESS_KEY}
+    ACCESS_KEY_ID: ${param:AWS_ACCESS_KEY_ID}
+    ACCESS_SECRET_KEY: ${param:AWS_SECRET_ACCESS_KEY}
   stage: ${opt:stage, self:custom.defaultStage}
   profile: ${self:custom.profiles.${self:provider.stage}}
 
 functions:
   lambda:
-    image: ${self:custom.IMAGE}
+    image: ${param:IMAGE}
     events:
       - http:
           method: ANY
@@ -26,9 +26,6 @@ functions:
           cors: true
 
 custom:
-  IMAGE: ${param:IMAGE}
-  AWS_ACCESS_KEY_ID: ${param:AWS_ACCESS_KEY_ID}
-  AWS_SECRET_ACCESS_KEY: ${param:AWS_SECRET_ACCESS_KEY}
   defaultStage: dev
   profiles:
     dev: devProfile
