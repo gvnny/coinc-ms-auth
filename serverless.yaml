@@ -16,6 +16,15 @@ provider:
   stage: ${opt:stage, self:custom.defaultStage}
   profile: ${self:custom.profiles.${self:provider.stage}}
 
+custom:
+  IMAGE: ${opt:IMAGE, 'IMAGE'}
+  AWS_ACCESS_KEY_ID: ${opt:AWS_ACCESS_KEY_ID, 'AWS_ACCESS_KEY_ID'}
+  AWS_SECRET_ACCESS_KEY: ${opt:AWS_SECRET_ACCESS_KEY, 'AWS_SECRET_ACCESS_KEY'}
+  defaultStage: dev
+  profiles:
+    dev: devProfile
+    prod: prodProfile
+
 functions:
   lambda:
     image: ${self:custom.IMAGE}
@@ -24,12 +33,3 @@ functions:
           method: ANY
           path: '/{proxy+}'
           cors: true
-
-custom:
-  IMAGE: ${env:IMAGE}
-  AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
-  AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
-  defaultStage: dev
-  profiles:
-    dev: devProfile
-    prod: prodProfile
