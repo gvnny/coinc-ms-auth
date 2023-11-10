@@ -5,6 +5,7 @@ import {
 } from './registerCreatedUser.dto';
 import { Model } from 'mongoose';
 import { User } from 'src/utils/database/schemas/interfaces/user.schema.interface';
+import * as bcrypt from 'bcrypt';
 @Injectable()
 export class RegisterCreatedUserUseCase {
   constructor(
@@ -14,15 +15,18 @@ export class RegisterCreatedUserUseCase {
   async execute(
     request: RegisterCreatedUserUseCaseRequest,
   ): Promise<RegisterCreatedUserUseCaseResponse> {
-    const createdCat = new this.userModel({
+    const hashedPass = bcrypt.hashSync(request.password, 10);
+    const userToCreate = new this.userModel({
       userId: request.userId,
-      name: request.name,
+      firstName: request.firstName,
+      lastName: request.lastName,
       email: request.email,
+      password: hashedPass,
       registeredAt: new Date(),
       isActive: true,
       deactivatedAt: null,
     });
-    const response = await createdCat.save();
+    const response = await userToCreate.save();
     if (!response)
       throw new BadRequestException(
         'Não foi possível registrar o usuário criado',
