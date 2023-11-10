@@ -4,6 +4,7 @@ import { eventContext } from 'aws-serverless-express/middleware';
 
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
+import { SwaggerConfig } from './config/swaggerConfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const express = require('express');
@@ -21,6 +22,7 @@ export async function bootstrapServer(module: any, event: any, context: any) {
       new ExpressAdapter(expressApp),
     );
     nestApp.enableCors();
+    SwaggerConfig(nestApp);
     nestApp.use(eventContext());
     await nestApp.init();
     cachedServer = createServer(expressApp, undefined, binaryMimeTypes);
