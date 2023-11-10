@@ -7,7 +7,7 @@ package:
 provider:
   name: aws
   runtime: nodejs18.x
-  region: sa-east-1
+  region: us-east-1
   stackTags:
     Projeto: 'COINC'
   environment:
@@ -15,6 +15,15 @@ provider:
     ACCESS_SECRET_KEY: ${self:custom.AWS_SECRET_ACCESS_KEY}
   stage: ${opt:stage, self:custom.defaultStage}
   profile: ${self:custom.profiles.${self:provider.stage}}
+
+custom:
+  IMAGE: ${param:IMAGE, 'IMAGE'}
+  AWS_ACCESS_KEY_ID: ${param:AWS_ACCESS_KEY_ID, 'AWS_ACCESS_KEY_ID'}
+  AWS_SECRET_ACCESS_KEY: ${param:AWS_SECRET_ACCESS_KEY, 'AWS_SECRET_ACCESS_KEY'}
+  defaultStage: dev
+  profiles:
+    dev: devProfile
+    prod: prodProfile
 
 functions:
   lambda:
@@ -24,12 +33,3 @@ functions:
           method: ANY
           path: '/{proxy+}'
           cors: true
-
-custom:
-  IMAGE: ${param:IMAGE}
-  AWS_ACCESS_KEY_ID: ${param:AWS_ACCESS_KEY_ID}
-  AWS_SECRET_ACCESS_KEY: ${param:AWS_SECRET_ACCESS_KEY}
-  defaultStage: dev
-  profiles:
-    dev: devProfile
-    prod: prodProfile
