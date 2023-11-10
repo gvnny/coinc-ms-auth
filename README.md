@@ -5,15 +5,11 @@
   <p align="center">A microsservice authentication.</p>
     <p align="center">
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Endpoints
 
-- (GET) Users - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/users
+- <b>(GET)</b> Users - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/users
 
-- (POST) Add users - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/user/add
+- <b>(POST)</b> Add users - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/user/add
 
 - Body:
   {
@@ -24,7 +20,7 @@
   "password": "user-password"
   }
 
-- (POST) Login - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/login
+- <b>(POST)</b> Login - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/login
   
 - Body:
   {
@@ -32,7 +28,7 @@
   "password": "user-password"
   }
 
-- (POST) Verify Refresh token - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/verify-refresh-token
+- <b>(POST)</b> Verify Refresh token - https://4eir4uj94l.execute-api.us-east-1.amazonaws.com/dev/auth/verify-refresh-token
   
 - Body:
   {
